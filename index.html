@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> صدقة علي روح والدة محمد ماجد</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+        #prayer {
+            margin-top: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #prayer {
+            margin-top: 15%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #name {
+            outline: none;
+            font-size: 18px;
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+            padding: 6px 0px;
+            width: 300px;
+            border-radius: 10px;
+            padding-left: 7px;
+        }
+
+        @media (max-width: 540px) {
+            h1 {
+                text-align: center;
+            }
+
+            #prayer {
+                margin-top: 0%;
+                width: 100%;
+                height: 100vh;
+            }
+        }
+
+        @media (max-width:280px) {
+            #name {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="prayer">
+        <div class="container">
+
+            <h1 style="font-weight: bold;"> صدقة علي روح والدة محمد ماجد</h1>
+            <input type="text" id="name" placeholder="اسم المتوفى">
+            <br><br>
+            <button onclick="pray()" id="btn">ابدأ للتنقل بين الدعاء</button>
+            <div id="result" style="font-size: 25px;"></div>
+        </div>
+
+    </div>
+
+    <script>
+        function pray() {
+            var name = document.getElementById("name").value;
+            var prayers = [
+                "اللهم اغفر له وارحمه وعافه واعف عنه وأكرم نزله ووسع مدخله واغسله بالماء والثلج والبرد ونقه من الخطايا كما ينقى الثوب الأبيض من الدنس",
+                "اللهم اجعل قبره روضة من رياض الجنة",
+                "اللهم إن كان محسناً فزد في إحسانه وإن كان مسيئاً فتجاوز عن سيئاته",
+                "اللهم ثبته عند السؤال ووزنه في الميزان واجعله من الذين أنعمت عليهم من النبيين والصديقين والشهداء والصالحين",
+                "اللهم إن كان محسنًا فزد من حسناته، وإن كان مسيئًا فتجاوز عن سيئاته",
+                " اللهم اجعل قبره روضة من رياض الجنة، ولا تجعله حفرة من حفر النار",
+                "اللهم اجعل عنده فراشًا من رياض الجنة",
+                "اللهم اجعله من الصابرين، واجعله من الشاكرين، واجعله من المؤمنين، واجعله من الذاكرين",
+                "اللهم اجعله في زمرة الصالحين، واجعل قبره روضة من رياض الجنة، واجعل نوراً يوم القيامة وأمانًا من عذاب القبر.",
+                "اللهم اغفر له وارحمه، وعافه واعف عنه، وأكرم نزله ووسع مدخله، وألهم أهله الصبر والسلوان",
+                "اللهم اجعله من الذين قال الله فيهم: وَنَزَعْنَا مَا فِي صُدُورِهِم مِّنْ غِلٍّ إِخْوَانًا عَلَىٰ سُرُرٍ مُّتَقَابِلِينَ",
+                "اللهم اجعل قبره روضة من رياض الجنة",
+                "اللهم انقله من سريره إلى كرسي مصفوف",
+                "اللَّهمَّ إنَّها  في ذِمَّتِك وحبلِ جِوارِك فَقِهِ من فتنةِ القبرِ وعذابِ النَّارِ وأنتَ أهلُ الوفاءِ والحقِّ فاغفر لَه وارحمهُ إنَّكَ أنتَ الغفورُ الرَّحيمُ",
+                "اللهمّ عامله بما أنت أهله، ولا تعامله بما هو أهله",
+                "اللهم أنت ربها، وأنت خلقتها، وأنت هديتها للإسلام، وأنت قبضت روحها، وأنت أعلم بسرها وعلانيتها، جئنا شفعاء فاغفر لها",
+                "اللهمّ أبدله دارًا خيرًا من داره، وأهلًا خيرًا من أهله، وأدخله الجنّة، وأعذه من عذاب القبر، ومن عذاب النّار",
+                "اللهمّ اجزه عن الإحسان إحسانًا، وعن الإساءة عفوًا وغفرانًا. اللهمّ إن كان محسنًا فزد من حسناته، وإن كان مسيئًا فتجاوز عن سيّئاته",
+                "اللهمّ أدخله الجنّة من غير مناقشة حساب، ولا سابقة عذاب. اللهمّ آنسه في وحدته، وفي وحشته، وفي غربته",
+                "اللهمّ أنزله منزلًا مباركًا، وأنت خير المنزلين. اللهمّ أنزله منازل الصدّيقين، والشّهداء، والصّالحين، وحسُن أولئك رفيقًا",
+                "اللهمّ افسح له في قبره مدّ بصره، وافرش قبره من فراش الجنّة",
+                "اللهمّ إنّه في ذمّتك وحبل جوارك، فقِهِ فتنة القبر، وعذاب النّار، وأنت أهل الوفاء والحقّ، فاغفر له وارحمه، إنّك أنت الغفور الرّحيم. اللهمّ إنّه عبدك وابن عبدك، خرج من الدّنيا، وسعتها، ومحبوبها، وأحبّائه فيها، إلى ظلمة القبر، وما هو لاقيه",
+                "اللهم صل و سلم و زد و بارك على سيدنا محمد صلاة تغفر بها ذنوب والدة محمد ماجد و ترفع بها درجاتها فى الجنة و تُلحق بها ذريتها و زوجها فى الجنة و تجعلها من المقبولين عندك و من داخلين الجنة من باب الريّان"
+            ];
+            var randomPrayer = prayers[Math.floor(Math.random() * prayers.length)];
+            document.getElementById("result").innerHTML = name + " : " + randomPrayer;
+
+        }
+        onload = alert("الرجاء الدعاء للمتوفي بنيه خالصه")
+    </script>
+</body>
+
+</html>
